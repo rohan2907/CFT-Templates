@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "CFT stack to create s3 bucket for elasticbeanstalk application"
+
+#Parameters:
+#     BucketName:
+#      Description: Type unique name for your bucket
+#      Type: String
+
+Resources:
+  S3Bucket:
+       Type: "AWS::S3::Bucket"
+       Properties:
+           BucketName: !Sub "demoelasticbeanstalk-${AWS::Region}-${AWS::AccountId}"
+           
+Outputs:
+   BucketName:
+    Description: s3 bucket for elasticbeanstalk application
+    Value: !Ref S3Bucket            
+
+
+   
